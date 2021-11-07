@@ -1,0 +1,7 @@
+<main id="main-container">
+    <div class="container-fluid w-75">
+        <h1 class="text-center">Edit your article</h1>
+        <%= link_to 'Cancel and return to articles listing', articles_path %>
+        <%= render partial: 'form', locals: {article: @article} %>
+    </div>
+</main>

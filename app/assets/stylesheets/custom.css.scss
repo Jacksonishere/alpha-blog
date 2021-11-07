@@ -1,0 +1,52 @@
+@import "bootstrap/dist/css/bootstrap";
+
+html,
+body {
+	height: 100%;
+}
+
+main{
+    min-height: 100%;
+}
+
+a {
+	text-decoration: none;
+
+	// &:hover {
+	// 	text-decoration: underline;
+	// }
+}
+
+.navbar {
+	background-color: black !important;
+}
+
+.navbar-brand,
+.nav-link {
+	color: white !important;
+}
+
+.navbar-brand {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+#home-container {
+	#content {
+		background-image: asset-url("homebg.jpeg");
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 425px;
+	}
+}
+
+#main-container{
+    padding: 100px 0 65px;
+    #articles-container {
+        .card {
+            margin-top: 1.5rem;
+        }
+    }
+}
