@@ -8,7 +8,7 @@
         <% end %>
 
         <h1><%= @article.title %></h1>
-        <p><i>Jackson Lu</i> | created <%= time_ago_in_words(@article.created_at) %> ago </p>
+        <p><i>@<%= @article.user.username %> </i> | created <%= time_ago_in_words(@article.created_at) %> ago </p>
         <p><strong>Description: </strong><%= @article.description %></p>
         
         <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-primary" %> 

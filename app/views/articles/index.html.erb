@@ -7,7 +7,7 @@
     <% @articles.each do |article| %>
       <div class="card text-center w-75 shadow mb-4 bg-white rounded">
         <div class="card-header">
-          <i>Jackson Lu</i>
+          <i>@<%= article.user.username %></i>
         </div>
         <div class="card-body">
           <h5 class="card-title">
