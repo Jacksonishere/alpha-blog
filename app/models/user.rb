@@ -19,4 +19,5 @@ class User < ApplicationRecord
   # end
 
   has_many :articles
+  has_secure_password
 end
