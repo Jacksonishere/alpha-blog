@@ -1,5 +1,5 @@
 <%= form_with(model: @user, local: true, id: "user-signup-form", class: "mx-auto bg-white p-4 shadow p-3 mb-5 bg-white rounded") do |f| %>
-    <h2>Sign Up</h2>
+    <h2><%= @user.new_record? ? "Sign Up" : "Edit Profile" %></h2>
     <p>Please fill in this form to create an account!</p>
     <hr>
 
@@ -26,5 +26,5 @@
     </div>
 
 
-    <%= f.submit "Sign up", class: "d-block mx-auto mt-4 btn btn-outline-primary" %>
+    <%= f.submit @user.new_record? ? "Sign Up" : "Edit Profile", class: "d-block mx-auto mt-4 btn btn-outline-primary" %>
 <% end %>
