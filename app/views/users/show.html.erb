@@ -1,6 +1,7 @@
 <main id="main-container">
   <section class="profile">
     <div class="container profile-content d-flex flex-column align-items-center">
+      <%= render partial: 'shared/flash' %>
       <h1 class="text-center"><%= @user.username %></h1>
       <%= gravatar_for(@user, size: 150) %>
       <% if logged_in? && @user == current_user %>
