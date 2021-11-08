@@ -9,27 +9,7 @@
         <h1 class="text-center mx-auto mb-0">Listing All Articles</h1>
         <%= link_to "+", new_article_path, class: "btn btn-primary position-absolute" %>
       </div>
-    <% @articles.each do |article| %>
-      <div class="card text-center w-75 shadow mb-4 bg-white rounded">
-        <div class="card-header">
-          <i>@<%= article.user.username %></i>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= link_to article.title, article_path(article), class: "text-success" %>
-          </h5>
-          <p class="card-text"><%= article.description %></p>
-        </div>
-        <div class="links mb-4">
-          <%= link_to "View", article, class: "btn btn-outline-success" %>
-          <a class="btn btn-outline-info" href="articles/<%= article.id %>/edit">Edit</a>
-          <%= link_to "Delete", article, method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-outline-danger" %>
-        </div>
-        <div class="card-footer text-muted">
-          <small>Created at <%= time_ago_in_words(article.created_at) %></small>
-          <small>, updated at <%= time_ago_in_words(article.updated_at) %></small>
-        </div>
-      </div>
-    <% end %>
+
+      <%= render 'articles' %>
   </div>
 </main>

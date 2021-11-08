@@ -1,0 +1,14 @@
+<main id="main-container">
+  <section class="profile">
+    <div class="container profile-content d-flex flex-column align-items-center">
+      <h1 class="text-center"><%= @user.username %>'s profile</h1>
+      <%= gravatar_for(@user, size: 150) %>
+      <%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-primary mt-3"  %>
+
+      <div class="w-75 mt-4 mx-auto d-flex flex-column align-items-center">
+          <h2 class="text-center">Articles</h2>
+          <%= render 'articles/articles' %>
+      </div>
+    </div>
+  </section>
+</main>
