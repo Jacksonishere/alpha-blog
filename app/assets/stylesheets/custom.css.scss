@@ -50,3 +50,12 @@ a {
         }
     }
 }
+
+#user-signup-form{
+	width: unquote("min(450px, 90%)");
+
+	.input-group-text{
+		width: 42px;
+		justify-content: center;
+	}
+}

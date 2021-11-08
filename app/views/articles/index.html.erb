@@ -1,4 +1,9 @@
 <main id="main-container">
+  <% if flash.now[:notice] %>
+    <div class="container alert alert-success" role="alert">
+      <%= flash.now[:notice] %>
+    </div>
+  <% end %>
   <div class="container d-flex flex-column align-items-center mt-4 mb-8" id="articles-container">
       <div class="w-75 d-flex flex-row justify-content-end align-items-center">
         <h1 class="text-center mx-auto mb-0">Listing All Articles</h1>
