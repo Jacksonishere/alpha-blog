@@ -1,15 +1,15 @@
 <main id="main-container">
   <section class="profile">
     <div class="container profile-content d-flex flex-column align-items-center">
-      <h1 class="text-center"><%= @user.username %>'s profile</h1>
+      <h1 class="text-center"><%= @user.username %></h1>
       <%= gravatar_for(@user, size: 150) %>
       <% if logged_in? && @user == current_user %>
         <%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-primary mt-3"  %>
       <% end %>
-      <div class="w-75 mt-4 mx-auto d-flex flex-column align-items-center">
-          <h2 class="text-center">Articles</h2>
+      <div class="w-75 mb-4 mx-auto d-flex flex-column align-items-center">
+          <h2 class="text-center mt-3">Articles</h2>
 
-          <div class="flickr_pagination mt-3">
+          <div class="flickr_pagination mt-2 mb-3">
             <%= will_paginate @articles, :container => false %>
           </div>
           <%= render 'articles/articles' %>

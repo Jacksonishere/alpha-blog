@@ -1,5 +1,5 @@
 <% @articles.each do |article| %>
-    <div class="card text-center w-75 shadow mb-4 bg-white rounded">
+  <div class="card text-center w-75 shadow mb-4 bg-white rounded">
     <div class="card-header">
         <i>@<%= link_to article.user.username, article.user %></i>
     </div>
@@ -20,5 +20,5 @@
         <small>Created at <%= time_ago_in_words(article.created_at) %>,</small>
         <small>updated at <%= time_ago_in_words(article.updated_at) %></small>
     </div>
-    </div>
+  </div>
 <% end %>

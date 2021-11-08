@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
+  before_action :require_user, except: [:index, :show]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+  #Any signed in user can go to the edit page of someone elses article, send a patch request to another users article, or a delete request to another article. We want to prevent that 
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   def show
   end
 
@@ -48,6 +51,13 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :description)
+  end
+
+  def require_same_user
+    if current_user != @article.user
+      flash.now[:alert] = "You can only edit your posts!"
+      redirect_to user_path(current_user)
+    end
   end
 
 end
