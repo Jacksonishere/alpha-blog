@@ -7,8 +7,15 @@
 
       <div class="w-75 mt-4 mx-auto d-flex flex-column align-items-center">
           <h2 class="text-center">Articles</h2>
+
+          <div class="flickr_pagination mt-3">
+            <%= will_paginate @articles, :container => false %>
+          </div>
           <%= render 'articles/articles' %>
-      </div>
+          <div class="flickr_pagination mb-3">
+            <%= will_paginate @articles, :container => false %>
+          </div>
+        </div>
     </div>
   </section>
 </main>

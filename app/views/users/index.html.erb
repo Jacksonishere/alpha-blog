@@ -3,8 +3,16 @@
       <div class="container mx-auto w-75">
         <h1 class="text-center mx-auto mb-0">Alpha Bloggers!</h1>
         
-        <%= render 'users' %>
+      <div class="flickr_pagination mt-3">
+        <%= will_paginate @users, :container => false %>
+      </div>
+      
+      <%= render 'users' %>
+      
+      <div class="flickr_pagination mb-3">
+        <%= will_paginate @users, :container => false %>
       </div>
 
+    </div>
   </section>
 </main>
