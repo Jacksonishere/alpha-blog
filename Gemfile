@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem "font-awesome-rails" 
 gem 'will_paginate', '~> 3.3'
+gem 'rexml', require: false
 
 
 # Use Active Storage variant
