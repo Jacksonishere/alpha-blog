@@ -1,0 +1,21 @@
+<main id="main-container">
+  <div class="flickr_pagination mt-3">
+    <%= will_paginate @categories, :container => false %>
+  </div>
+  <div class="container d-flex flex-column align-items-center mt-4 mb-8">
+    <% @categories.each do |category| %>
+      <div class="card text-center w-75 shadow mb-4 bg-white rounded">
+        <div class="card-header">
+            <i>@<%= link_to category.name, category %></i>
+        </div>
+        <div class="card-body">
+            <i>@<%= link_to category.name, category %></i>
+        </div>
+        <div class="card-footer text-muted">
+            <small>Created at <%= time_ago_in_words(category.created_at) %>,</small>
+            <small>updated at <%= time_ago_in_words(category.updated_at) %></small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>
