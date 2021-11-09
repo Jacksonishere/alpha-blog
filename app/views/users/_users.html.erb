@@ -10,9 +10,13 @@
           </div>
           <div class="links mb-4">
               <%= link_to "View profile", user, class: "btn btn-outline-success" %>
+
+              <% if current_user.admin? %>
+                <%= link_to "Delete user", user, class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you want to sure you want to delete the account"} %>
+              <% end %>
           </div>
           <div class="card-footer text-muted">
-              <small>Joined <%= time_ago_in_words(user.created_at) %></small>
+              <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
           </div>
       </div>
   <% end %>

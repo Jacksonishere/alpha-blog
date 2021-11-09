@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = Article.paginate(page: params[:page], per_page: 5).order('id DESC')
 
   end
 
@@ -40,6 +40,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
+    flash[:notice] = "Article successfully deleted"
     redirect_to articles_path
   end
 
@@ -54,8 +55,8 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @article.user
-      flash.now[:alert] = "You can only edit your posts!"
+    if current_user != @article.user && !current_user.admin?
+      flash[:alert] = "You can only edit your posts!"
       redirect_to user_path(current_user)
     end
   end

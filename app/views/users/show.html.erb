@@ -4,8 +4,15 @@
       <%= render partial: 'shared/flash' %>
       <h1 class="text-center"><%= @user.username %></h1>
       <%= gravatar_for(@user, size: 150) %>
-      <% if logged_in? && @user == current_user %>
-        <%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-primary mt-3"  %>
+      <% if logged_in? %>
+        <% if @user == current_user %>
+          <div class="d-flex flex-row mt-4">
+            <%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-primary" %>
+            <%= link_to 'Delete your profile', @user, class: "ms-2 btn btn-outline-danger", method: :delete, data: {confirm: "Are you want to sure you want to delete the account"} %>
+          </div>
+        <% elsif current_user.admin? %>
+          <%= link_to 'Delete user', @user, class: "btn btn-outline-danger mt-2", method: :delete, data: {confirm: "Are you want to sure you want to delete the account"} %>
+        <% end %>
       <% end %>
       <div class="w-75 mb-4 mx-auto d-flex flex-column align-items-center">
           <h2 class="text-center mt-3">Articles</h2>

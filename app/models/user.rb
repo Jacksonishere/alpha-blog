@@ -18,6 +18,6 @@ class User < ApplicationRecord
   #   # self.email = raw_email.downcase
   # end
 
-  has_many :articles
+  has_many :articles, dependent: :destroy
   has_secure_password
 end
