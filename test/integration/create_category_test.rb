@@ -1,7 +1,14 @@
 require "test_helper"
 
 class CreateCategoryTest < ActionDispatch::IntegrationTest
-  
+  #because these tests are testing for creation of categories which now require admin priveleges, we must sign in user
+  setup do
+    @category = categories(:one)
+    @admin_user = User.create(username: "johndoe", email: "johndoe@gmail.com", password: "password", admin: true)
+
+    sign_in(@admin_user)
+  end
+
   test "get new category form and create category" do
     get categories_path
     assert_response :success
