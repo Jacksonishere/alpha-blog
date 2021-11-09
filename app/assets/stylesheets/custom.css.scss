@@ -70,8 +70,10 @@ a {
 }
 // user signup form
 #user-signup-form {
-	width: unquote("min(450px, 90%)");
-
+	// width: unquote("min(450px, 90%)");
+    width: 90%;
+    max-width: 450px;
+    
 	.input-group-text {
 		width: 42px;
 		justify-content: center;
