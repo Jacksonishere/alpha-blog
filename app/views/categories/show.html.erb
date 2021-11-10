@@ -1,3 +1,19 @@
 <main id="main-container">
-  <%= @category.name %>
+  <div class="container d-flex flex-column align-items-center mt-4 mb-8" id="articles-container">
+    <div class="w-75 d-flex flex-column justify-content-end align-items-center">
+      <h1 class="text-center mx-auto mb-0"><%= @category.name %></h1>
+      <%= link_to "Edit category", edit_category_path(@category), class: "mt-2 btn btn-outline-info" %>
+      <%= link_to "go back to categories", categories_path, class: "d-block align-self-start mt-1" %>
+    </div>
+
+    <% if @articles.count > 3 %>
+      <div class="flickr_pagination mt-3">
+        <%= will_paginate @articles, :container => false %>
+      </div>
+    <% end %>
+    <%= render partial: 'articles/articles' %>
+    <div class="flickr_pagination mb-3">
+      <%= will_paginate @articles, :container => false %>
+    </div>
+  </div>
 </main>

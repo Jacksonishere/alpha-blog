@@ -1,4 +1,5 @@
 <main id="main-container">
+  <%= render partial: 'shared/flash' %>
   <div class="flickr_pagination mt-3">
     <%= will_paginate @categories, :container => false %>
   </div>
@@ -6,10 +7,10 @@
     <% @categories.each do |category| %>
       <div class="card text-center w-75 shadow mb-4 bg-white rounded">
         <div class="card-header">
-            <i>@<%= link_to category.name, category %></i>
+            <%= link_to category.name, category %>
         </div>
         <div class="card-body">
-            <i>@<%= link_to category.name, category %></i>
+            <p class="mb-0"> <%= category.articles.count %> articles</p>
         </div>
         <div class="card-footer text-muted">
             <small>Created at <%= time_ago_in_words(category.created_at) %>,</small>
